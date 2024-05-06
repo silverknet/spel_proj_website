@@ -1,48 +1,55 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import './App.css';
-import Menu from './menu'; 
-import Project from './project'; 
-import About from './about'; 
-import Game from './game'; 
+import Menu from './menu';
+import Project from './project';
+import About from './about';
+import Game from './game';
 
 function App() {
   const [view, setView] = useState(0);
+  const scrolling = useRef(false);
 
-  const menuRef = useRef(null);
-  const projectRef = useRef(null);
-  const aboutRef = useRef(null);
-  const gameRef = useRef(null);
+  const refs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
-  const scrollToRef = (ref) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth' });
+  const scrollToRef = useCallback((viewNr) => {
+    if (refs[viewNr].current && !scrolling.current) {
+      scrolling.current = true; 
+      refs[viewNr].current.scrollIntoView({ behavior: 'smooth' });
+      setView(viewNr);
+      setTimeout(() => {
+        scrolling.current = false;
+      }, 1400);
     }
-  }
+  }, [refs]);
+
+  const handleScroll = useCallback((event) => {
+    event.preventDefault();
+    if (scrolling.current) return; 
+
+    const direction = event.deltaY > 0 ? 'down' : 'up';
+    if (direction === 'down' && view < refs.length - 1) {
+      scrollToRef(view + 1);
+    } else if (direction === 'up' && view > 0) {
+      scrollToRef(view - 1);
+    }
+  }, [scrollToRef, view]);
 
   useEffect(() => {
-    console.log("change");
-    switch(view) {
-      case 0:
-        scrollToRef(menuRef);
-        break;
-      case 1:
-        scrollToRef(projectRef);
-        break;
-      case 2:
-        scrollToRef(aboutRef);
-        break;
-      case 3:
-        scrollToRef(gameRef);
-        break;
-    }
-  }, [view]);
+    const handleWheel = (event) => {
+      handleScroll(event);
+    };
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+    };
+  }, [handleScroll]);
 
   return (
     <>
-      <Menu setView={setView} ref={menuRef} />
-      <Project setView={setView} ref={projectRef} />
-      <About setView={setView} ref={aboutRef} />
-      <Game setView={setView} ref={gameRef} />
+      <Menu scrollToRef={scrollToRef} ref={refs[0]} />
+      <Project scrollToRef={scrollToRef} ref={refs[1]} />
+      <About scrollToRef={scrollToRef} ref={refs[2]} />
+      <Game scrollToRef={scrollToRef} ref={refs[3]} />
     </>
   );
 }

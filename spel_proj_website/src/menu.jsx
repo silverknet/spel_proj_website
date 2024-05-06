@@ -9,9 +9,9 @@ const Menu = React.forwardRef((props, ref) => {
         <div className='MenuContainer' ref={ref}>
             <div className="MenuBar">
                 <img src={GameLogo} alt="Game Logo" className="GameLogo" />
-                <div className='MenuComponent' onClick={() => props.setView(1)}><p className='MenuText'>Project</p></div>
-                <div className='MenuComponent' onClick={() => props.setView(2)}><p className='MenuText'>About</p></div>
-                <div className='MenuComponent' onClick={() => props.setView(3)}><p className='MenuText'>Game</p></div>
+                <div className='MenuComponent' onClick={() => props.scrollToRef(1)}><p className='MenuText'>Project</p></div>
+                <div className='MenuComponent' onClick={() => props.scrollToRef(2)}><p className='MenuText'>About</p></div>
+                <div className='MenuComponent' onClick={() => props.scrollToRef(3)}><p className='MenuText'>Game</p></div>
             </div>
         </div>
     )

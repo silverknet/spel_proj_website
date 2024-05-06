@@ -6,7 +6,7 @@ import React from 'react';
 const Game = React.forwardRef((props, ref) => {
   return (
     <div className="Game" ref={ref}>
-        Game
+        <iframe src="./putgamehere/index.html" style={{ width: '956px', height: '557px' }}></iframe>
     </div>
   )
 });
