@@ -2,6 +2,7 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  margin: 0px;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -11,6 +12,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+#root{
+  margin:0px;
+  padding:0px;
 }
 
 a {
@@ -52,6 +57,72 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.GameLogo{
+  width: 300px;
+  margin-bottom: 26px;
+  
+}
+.MenuContainer{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.MenuBar{
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  font-size: 18px;
+  align-items: center;
+  font-weight: 400;
+  width:fit-content;
+}
+.MenuBar p{
+  margin: 0px;
+}
+.MenuComponent{
+  width: 110px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 10px;
+}
+.MenuComponent:hover{
+  cursor: pointer;
+  font-weight: 700;
+}
+.Project{
+  height: 100vh;
+  width: 100vw;
+  background-color: #FB6376;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f9f9f9;
+}
+.About{
+  height: 100vh;
+  width: 100vw;
+  background-color: #009ab5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f9f9f9;
+}
+.Game{
+  height: 100vh;
+  width: 100vw;
+  background-color: #FFBE0B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f9f9f9;
 }
 
 @media (prefers-color-scheme: light) {
