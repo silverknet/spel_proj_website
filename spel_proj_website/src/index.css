@@ -112,7 +112,8 @@ button:focus-visible {
 .Game{
   height: 100vh;
   width: 100vw;
-  background-color: #e3dee2;
+  background-image: radial-gradient(circle, #a6e7bc, #6cd8d8);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -172,7 +173,7 @@ button:focus-visible {
 }
 iframe{
   border-style: none;
-  filter: drop-shadow(0px 3px 18px #00000079);
+  /*filter: drop-shadow(0px 3px 18px #00000079);*/
 }
 
 @media (prefers-color-scheme: light) {
