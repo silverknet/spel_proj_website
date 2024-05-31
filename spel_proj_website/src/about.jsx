@@ -25,7 +25,7 @@ const About = React.forwardRef((props, ref) => {
                 <p> The team is an elite group of 4 individuals studying at KTH Royal Institute of Technoloy in Sweden. This group combined their skills and strenghts to create a masterpiece you must play.  </p>
                 <div className='ImageSection'>
                   <div className='ImageContainer2'>
-                  <span className='ImageLabel'>Palakk</span>
+                  <span className='ImageLabel'>Palak</span>
                     <img className='Image' src={pic_palak} alt="Palak" />
                   </div>
                   <div className='ImageContainer2'>
