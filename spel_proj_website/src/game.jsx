@@ -20,7 +20,7 @@ const Game = React.forwardRef((props, ref) => {
           rel="noopener noreferrer"
           style={{ fontSize: '18px', color: '#007BFF', textDecoration: 'none' }}
         >
-          Play the game on itch.io
+          Play the free demo on itch.io
         </a>
       </div>
     </div>
