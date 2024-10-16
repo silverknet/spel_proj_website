@@ -22,7 +22,7 @@ const About = React.forwardRef((props, ref) => {
             </div>
             <div className='TextSection'>
                 <h2>About the Team</h2>
-                <p> The team is an elite group of 4 individuals studying at KTH Royal Institute of Technoloy in Sweden. This group combined their skills and strenghts to create a masterpiece you must play.  </p>
+                <p> The team is a group of 4 individuals studying at KTH Royal Institute of Technoloy in Sweden. This group combined their skills and strenghts to create a masterpiece you must play.  </p>
                 <div className='ImageSection'>
                   <div className='ImageContainer2'>
                   <span className='ImageLabel'>Palak</span>
